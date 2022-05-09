@@ -1,0 +1,30 @@
+﻿@using Entity.Model
+@model Student
+@{
+    ViewData["Title"] = "EditStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Öğrenci Düzenle</h1>
+<br />
+<div class=container>
+
+    @using (Html.BeginForm("EditStudent","Student",FormMethod.Post))
+    {
+        @Html.HiddenFor(x=>x.StudentID)
+        @Html.Label("Öğrenci Adı")
+        @Html.TextBoxFor(x=>x.FirstName,new { @class = "form-control"})
+        <br />
+         @Html.Label("Öğrenci Soyadı")
+        @Html.TextBoxFor(x=>x.LastName,new { @class = "form-control"})
+        <br />
+         @Html.Label("Kurs Seçimi")
+        @Html.DropDownListFor(x=>x.CourseID,(List<SelectListItem>)ViewBag.course,new { @class = "form-control"})
+            <br />
+         @Html.Label("Öğrenci Doğum Tarihi")
+        @Html.TextBoxFor(x=>x.BirthDate,new { @class = "form-control"})
+        <br />
+        <button class="btn btn-primary"> Öğrenciyi Güncelle </button>
+    }
+
+</div>

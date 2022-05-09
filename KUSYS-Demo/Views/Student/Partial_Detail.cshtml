@@ -1,0 +1,34 @@
+﻿@using Entity.Model
+@model Student
+@{
+    ViewData["Title"] = "StudentDetail";
+}
+
+
+<br />
+<div class="modal-dialog" style="max-width:800px">
+    <div class="modal-content">
+        <div class="modal-header">
+           <h1>Öğrenci Detayı</h1>
+        </div>
+        <div class="modal-body">
+
+
+        @Html.HiddenFor(x=>x.StudentID)
+        @Html.Label("Öğrenci Adı")
+        @Html.TextBoxFor(x=>x.FirstName,new { @class = "form-control",@readonly="readonly"})
+        <br />
+         @Html.Label("Öğrenci Soyadı")
+        @Html.TextBoxFor(x=>x.LastName,new { @class = "form-control",@readonly="readonly"})
+        <br />
+         @Html.Label("Kurs Seçimi")
+        @Html.DropDownListFor(x=>x.CourseID,(List<SelectListItem>)ViewBag.course,new { @class = "form-control",@disabled="disabled"})
+            <br />
+         @Html.Label("Öğrenci Doğum Tarihi")
+        @Html.TextBoxFor(x=>x.BirthDate,new { @class = "form-control",@readonly="readonly"})
+        <br />
+        <button  class="btn btn-primary" onclick="closeCreateModal(@Model.StudentID)" data-dismiss="modal"> Kapat </button>
+    
+   </div>
+    </div>
+</div>

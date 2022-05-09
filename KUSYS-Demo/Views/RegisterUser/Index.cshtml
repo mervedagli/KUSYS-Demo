@@ -1,0 +1,78 @@
+﻿@model UserSignUpViewModel
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Kayıt Ol</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">   
+     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body >
+    <main class="form-signin" style="border: ridge; border-radius: 10px;">
+        @using (Html.BeginForm("Index", "RegisterUser", FormMethod.Post, new { enctype = "multipart/form-data", @class = "m-form m-form--fit m-form--label-align-left", id = "userform" }))
+        {
+
+            <h1 class="h3 mb-3 fw-normal text-center">Kayıt Ol</h1>
+            @*<div class="text-danger">@Html.ValidationMessageFor(x => x.RegistrationNo)</div>*@
+            <div class="form-floating">
+                <h6>
+                    Kullanıcı Adı
+                </h6>
+                <input type="text" class="form-control" id="floatingInput" name="UserNamee" placeholder="Kullanıcı Adınızı Giriniz">
+                <label for="floatingInput"></label>
+            </div>
+            <br />
+                 <div class="form-floating">
+                <h6>
+                    Mail
+                </h6>
+                <input type="email" class="form-control" id="floatingInput" name="Mail" placeholder="Email Adresi Giriniz">
+                <label for="floatingInput"></label>
+            </div>
+            <br />
+            @*<div class="text-danger">@Html.ValidationMessageFor(x => x.PasswordHash)</div>*@
+            <div class="form-floating">
+                <h6>
+                   Şifre
+                </h6>
+                <input type="password" class="form-control" name="Password" id="floatingPassword" placeholder="Şifre" style="border-radius:4px">
+                <label for="floatingPassword"></label>
+            </div>
+             <br />
+            @*<div class="text-danger">@Html.ValidationMessageFor(x => x.PasswordHash)</div>*@
+            <div class="form-floating">
+                <h6>
+                   Şifre Tekrarı
+                </h6>
+                <input type="password" class="form-control" name="ConfirmPassword" id="floatingPassword" placeholder="Şifre Tekrarı" style="border-radius:4px">
+                <label for="floatingPassword"></label>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger ", @style = "color:red" })
+            <div class="text-center">
+                <button class="btn btn-primary " style="width: 100%;" type="submit">Kayıt Ol</button>
+            </div>
+            <p class="mt-5 mb-3 text-muted"></p>
+        }
+    </main>
+</body>
+</html>
